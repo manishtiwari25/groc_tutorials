@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "Code First gRPC": {
+    "HungryDeveloper.CodeFirstgRPC.Server": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": false,

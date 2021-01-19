@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Code_First_gRPC
+namespace HungryDeveloper.CodeFirstgRPC.Server
 {
     public class Program
     {

@@ -1,13 +1,16 @@
 using Grpc.Core;
+using HungryDeveloper.CodeFirstgRPC.Common.Contract;
+using HungryDeveloper.CodeFirstgRPC.Common.Models;
 using Microsoft.Extensions.Logging;
+using ProtoBuf.Grpc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Code_First_gRPC
+namespace HungryDeveloper.CodeFirstgRPC.Server
 {
-    public class GreeterService : Greeter.GreeterBase
+    public class GreeterService : IGreeterService
     {
         private readonly ILogger<GreeterService> _logger;
         public GreeterService(ILogger<GreeterService> logger)
@@ -15,7 +18,7 @@ namespace Code_First_gRPC
             _logger = logger;
         }
 
-        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+        public Task<HelloReply> SayHelloAsync(HelloRequest request, CallContext context = default)
         {
             return Task.FromResult(new HelloReply
             {
