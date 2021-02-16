@@ -1,4 +1,5 @@
-﻿using HungryDeveloper.CodeFirstgRPC.Common.Models;
+﻿using Grpc.Core;
+using HungryDeveloper.CodeFirstgRPC.Common.Models;
 using ProtoBuf.Grpc;
 using System;
 using System.Collections.Generic;
@@ -13,5 +14,14 @@ namespace HungryDeveloper.CodeFirstgRPC.Common.Contract
     {
         [OperationContract]
         Task<HelloReply> SayHelloAsync(HelloRequest request, CallContext context = default);
+
+        [OperationContract]
+        IAsyncEnumerable<HelloReply> SayHelloServerStreamAsync(CallContext context = default);
+
+        [OperationContract]
+        IAsyncEnumerable<HelloReply> SayHelloClientServerStreamAsync(IAsyncEnumerable<HelloRequest> request, CallContext context = default);
+
+        [OperationContract]
+        Task<HelloReply> SayHelloClientStreamAsync(IAsyncEnumerable<HelloRequest> request, CallContext context = default);
     }
 }
